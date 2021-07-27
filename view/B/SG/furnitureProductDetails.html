@@ -17,9 +17,16 @@
                     method: 'GET'
                 })).then(function (response) {
                     return response.json();
-                }).then(function (furniture) {
+                }).then(function (data) {
                     //set furniture details
+                    var furniture = data
                     document.getElementById("imgFurniture").setAttribute('src', furniture.imageURL);
+                    document.getElementById("furnitureName").innerHTML = furniture.name;
+                    document.getElementById("price").innerHTML = furniture.price;
+                    document.getElementById("description").innerHTML = furniture.description;
+                    document.getElementById("height").innerHTML = furniture.height;
+                    document.getElementById("length").innerHTML = furniture.length;
+                    document.getElementById("width").innerHTML = furniture.width;
                 
                     if(memberEmail != null && memberEmail != '') {
                         document.getElementById("addToCartBtn").innerHTML = '<button class="btn btn-primary" onclick="addToCart(\''
@@ -176,11 +183,14 @@
                             <div class="col-md-6">
                                 <div class="summary entry-summary">
                                     <h2 class="shorter"><strong id="furnitureName"></strong></h2>
-                                    <div id="addToCartBtn"></div>
-                                    <p class="price"><h4 class="amount" id="price"></h4></p>
+                                    <div id="addToCartBtn"></div></br>
+                                    <h4 class="price">$<a class="amount" id="price" type="value"></a></h4>
                                     <strong>Description</strong>
                                     <p class="taller" id="description"></p>
                                     <p id="furnitureInfo"></p>
+                                    <p>Height: <a class="amount" id="height" style="color:grey"></a></p>
+                                    <p>Length: <a class="amount" id="length" style="color:grey"></a></p>
+                                    <p>Width: <a class="amount" id="width" style="color:grey"></a></p>
                                     <div class="product_meta">
                                         <span class="posted_in">Category: <a id="categoryLink" rel="tag"></a></span>
                                     </div>
