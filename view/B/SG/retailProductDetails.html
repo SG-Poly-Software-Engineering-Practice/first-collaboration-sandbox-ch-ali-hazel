@@ -20,6 +20,10 @@
                 }).then(function (product) {
                     //set retail product details
                     document.getElementById("productImg").setAttribute('src', product.imageURL);
+                    document.getElementById("productName").innerHTML = product.name;
+                    document.getElementById("productPrice").innerHTML = product.price;
+                    document.getElementById("productDesc").innerHTML = product.description;
+
 
                     document.getElementById("productCategory").innerHTML = product.category;
                     document.getElementById("productCategory").setAttribute('href', '/B/' + countryPrefix
@@ -101,8 +105,8 @@
 
                             <div class="col-md-6">
                                 <div class="summary entry-summary">
-                                    <h2 class="shorter"><strong id="productName"></strong></h2>
-                                    <p class="price"><h4 class="amount" id="productPrice"></h4></p>
+                                    <h2 class="shorter"><strong id="productName"></strong></h2></br>
+                                    <h4 class="price">$<a class="amount" id="productPrice" type="value"></a></h4></br>
                                     <strong>Description</strong>
                                     <p class="taller" id="productDesc"></p>
                                     <div class="product_meta">

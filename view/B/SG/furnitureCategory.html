@@ -15,8 +15,9 @@
                     return response.json();
                 }).then(function (data) {
                     var htmlTxt = '';
-                   
-                        var furniture = data[0];
+                    for (let i = 0; i < data.length; i++) {
+                        var furniture = data[i];
+
                         //generate html for furnitures
                         htmlTxt += '\
                             <li class="col-md-3 col-sm-6 col-xs-12 product" style="padding-bottom: 1%;padding-top: 2%;">\
@@ -59,6 +60,7 @@
                    
                     document.getElementById("furnituresDisplay").innerHTML = htmlTxt;
                     document.getElementById("categoryTitle").innerHTML = cat;
+                    }
                 }).catch(function(error) {
                     console.log(error);
                 });
